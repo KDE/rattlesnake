@@ -83,9 +83,15 @@ void Metronome::removeNote(const int index)
 void Metronome::start()
 {
     m_hitTimer.start();
+    Q_EMIT runningChanged();
 }
 
 void Metronome::stop()
 {
     m_hitTimer.stop();
+    Q_EMIT runningChanged();
+}
+
+bool Metronome::running() const {
+    return m_hitTimer.isActive();
 }

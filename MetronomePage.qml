@@ -8,20 +8,43 @@ import org.kde.rattlesnake 1.0
 
 Kirigami.Page {
     title: qsTr("Metronome")
+    id: page
+    footer: ProgressBar {
+        height: TapIn.tapCounter === 0 ? 0 : 15
+        Behavior on height {
+            NumberAnimation {}
+        }
+
+        from: 0
+        to: 4
+        value: TapIn.tapCounter
+
+        Behavior on value {
+            NumberAnimation {}
+        }
+    }
+
+
+    Connections {
+        target: TapIn
+        onTapStopped: {
+            Metronome.bpm = TapIn.bpm
+            container.state = "resized"
+            Metronome.start()
+        }
+    }
+
+    mainAction: Kirigami.Action {
+        icon.name: "zoom-original"
+        text: qsTr("Tap")
+        onTriggered: {
+            Metronome.stop()
+            TapIn.tap()
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
-
-        Button {
-            id: tapButton
-            onClicked: TapIn.tap()
-
-            Connections {
-                target: TapIn
-                onTapStopped: {
-                    Metronome.bpm = TapIn.bpm
-                }
-            }
-        }
 
         RowLayout {
             Layout.fillWidth: true
@@ -92,16 +115,62 @@ Kirigami.Page {
             value: Metronome.bpm
             from: 20
             to: 400
+
+            Behavior on value {
+                NumberAnimation {}
+            }
+
             onMoved: {
                 Metronome.bpm = value
             }
             contentItem: Item {
+                id: container
                 anchors.fill: dial
+                Rectangle {
+                    id: animation
+                    anchors.centerIn: parent
+                    width: height
+                    height: playPauseButton.height * 0.75
+                    radius: height * 0.5
+                    color: "white"
+                }
+                states: [
+                    State {
+                        name: "resized"
+                        PropertyChanges {
+                            target: animation
+                            height: 600
+                            opacity: 0
+                        }
+                    },
+                    State {
+                        name: "normal"
+                        PropertyChanges {
+                            target: animation
+                            height: playPauseButton.height * 0.75
+                            opacity: 100
+                        }
+                    }
+                ]
+                state: "normal"
+                transitions: Transition {
+                    enabled: container.state == "normal"
 
+                    onRunningChanged: if (!running) {
+                                          container.state = "normal"
+                                      }
+                    PropertyAnimation {
+
+                        properties: "height, opacity"
+                        easing.type: Easing.InOutQuad
+                    }
+                }
                 RoundButton {
+                    id: playPauseButton
                     flat: true
                     anchors.centerIn: parent
                     checkable: true
+                    checked: Metronome.running
                     icon.name: checked ? "media-playback-pause" : "media-playback-start"
                     onClicked: checked ? Metronome.start() : Metronome.stop()
                 }

@@ -12,7 +12,7 @@ Button {
         case Metronome.Click:
             return "Click"
         case Metronome.HighHead:
-            return "Hi-Head"
+            return "Hi-Hat"
         case Metronome.Snare:
             return "Snare"
         }

@@ -13,6 +13,7 @@ class Metronome : public QObject
     Q_PROPERTY(int bpm READ bpm WRITE setBpm NOTIFY bpmChanged)
     Q_PROPERTY(QVector<Note*> notes READ notes NOTIFY notesChanged)
     Q_PROPERTY(int currentIndex READ currentIndex NOTIFY currentIndexChanged)
+    Q_PROPERTY(bool running READ running NOTIFY runningChanged)
 
 public:
     enum Sounds {
@@ -44,6 +45,9 @@ public:
     int currentIndex() const;
     void setCurrentIndex(int curentIndex);
     Q_SIGNAL void currentIndexChanged();
+
+    bool running() const;
+    Q_SIGNAL void runningChanged();
 
 private:
     int m_bpm;

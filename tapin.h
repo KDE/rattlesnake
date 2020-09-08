@@ -9,7 +9,8 @@ class TapIn : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int bpm READ bpm WRITE setBpm NOTIFY bpmChanged)
+    Q_PROPERTY(int bpm READ bpm NOTIFY bpmChanged)
+    Q_PROPERTY(int tapCounter READ tapCounter NOTIFY tapCounterChanged)
 
 public:
     explicit TapIn(QObject *parent = nullptr);
@@ -19,8 +20,10 @@ public:
     Q_SIGNAL void tapStopped();
 
     int bpm() const;
-    void setBpm(int bpm);
     Q_SIGNAL void bpmChanged();
+
+    int tapCounter() const;
+    Q_SIGNAL void tapCounterChanged();
 
 private:
     QElapsedTimer m_tapTimer;
