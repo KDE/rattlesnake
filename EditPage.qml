@@ -8,7 +8,10 @@ import org.kde.rattlesnake 1.0
 
 Kirigami.ScrollablePage {
     title: qsTr("Edit beat")
-
+    mainAction: Kirigami.Action {
+        icon.name: "list-add"
+        onTriggered: Metronome.addNote(0)
+    }
     Kirigami.CardsListView {
         model: Metronome.notes
         delegate: Kirigami.Card {
@@ -42,9 +45,10 @@ Kirigami.ScrollablePage {
                 }
                 Slider {
                     Layout.alignment: Qt.AlignHCenter
-
                     from: 0
                     to: 100
+                    snapMode: Slider.SnapAlways
+                    stepSize: 10
                     value: Metronome.notes[index].volume
                     onMoved: Metronome.notes[index].volume = value
                 }
@@ -52,5 +56,3 @@ Kirigami.ScrollablePage {
         }
     }
 }
-
-

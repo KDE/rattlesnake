@@ -13,6 +13,8 @@ Metronome::Metronome(QObject *parent)
     connect(&m_hitTimer, &QTimer::timeout, this, [=] {
         m_hitCount++;
     });
+
+    addNote(Sounds::Click);
 }
 
 int Metronome::bpm() const
@@ -71,7 +73,7 @@ void Metronome::addNote(const Sounds sound)
 
 void Metronome::removeNote(const int index)
 {
-    if (index < 0) {
+    if (index < 1) {
         return;
     }
     m_notes.removeAt(index);

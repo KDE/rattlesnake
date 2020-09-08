@@ -11,6 +11,18 @@ Kirigami.Page {
     ColumnLayout {
         anchors.fill: parent
 
+        Button {
+            id: tapButton
+            onClicked: TapIn.tap()
+
+            Connections {
+                target: TapIn
+                onTapStopped: {
+                    Metronome.bpm = TapIn.bpm
+                }
+            }
+        }
+
         RowLayout {
             Layout.fillWidth: true
             Button {
@@ -27,6 +39,10 @@ Kirigami.Page {
 
                     RowLayout {
                         height: editor.height
+                        Item {
+                            implicitWidth: 4
+                            //spacer
+                        }
                         Repeater {
                             id: repeater
                             Layout.alignment: Qt.AlignHCenter
@@ -34,8 +50,9 @@ Kirigami.Page {
                             Layout.fillHeight: true
                             model: Metronome.notes
                             delegate: Button {
+                                implicitWidth: height
                                 flat: index !== Metronome.currentIndex
-                                Layout.fillHeight: true
+
                                 Layout.alignment: Qt.AlignVCenter
                                 text: modelData.sound + 1
                                 onClicked: pageStack.push("qrc:/EditPage.qml")

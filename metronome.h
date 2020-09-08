@@ -47,7 +47,6 @@ public:
 
 private:
     int m_bpm;
-    QTimer m_tapTimer;
     QTimer m_hitTimer;
     QMediaPlayer m_mediaPlayer;
     QVector<Note*> m_notes;
