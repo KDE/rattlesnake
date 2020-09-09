@@ -8,7 +8,7 @@ import org.kde.rattlesnake 1.0
 
 Kirigami.ApplicationWindow {
     visible: true
-    width: 640
+    width: 700
     minimumWidth: 200
     height: 480
     minimumHeight: 200
