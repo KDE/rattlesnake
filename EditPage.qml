@@ -15,42 +15,46 @@ Kirigami.ScrollablePage {
     Kirigami.CardsListView {
         model: Metronome.notes
         delegate: Kirigami.Card {
-            height: 70
-            ColumnLayout {
-                anchors.fill: parent
-                ButtonGroup {
-                    buttons: column.children
-                }
-
-                RowLayout {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    id: column
-
-                    InstrumentButton {
-                        belongsToIndex: index
-                        instrument: Metronome.Click
+            contentItem: Item {
+                implicitWidth: delegateLayout.implicitWidth
+                implicitHeight: delegateLayout.implicitHeight
+                ColumnLayout {
+                    id: delegateLayout
+                    anchors.fill: parent
+                    ButtonGroup {
+                        buttons: column.children
                     }
 
-                    InstrumentButton {
-                        belongsToIndex: index
-                        instrument: Metronome.HighHead
-                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        id: column
 
-                    InstrumentButton {
-                        belongsToIndex: index
-                        instrument: Metronome.Snare
+                        InstrumentButton {
+                            belongsToIndex: index
+                            instrument: Metronome.Click
+                        }
+
+                        InstrumentButton {
+                            belongsToIndex: index
+                            instrument: Metronome.HighHead
+                        }
+
+                        InstrumentButton {
+                            belongsToIndex: index
+                            instrument: Metronome.Snare
+                        }
                     }
-                }
-                Slider {
-                    Layout.alignment: Qt.AlignHCenter
-                    from: 0
-                    to: 100
-                    snapMode: Slider.SnapAlways
-                    stepSize: 10
-                    value: Metronome.notes[index].volume
-                    onMoved: Metronome.notes[index].volume = value
+                    Slider {
+                        Layout.alignment: Qt.AlignHCenter
+                        from: 0
+                        to: 100
+                        snapMode: Slider.SnapAlways
+                        stepSize: 10
+                        value: Metronome.notes[index].volume
+                        onMoved: Metronome.notes[index].volume = value
+                    }
                 }
             }
         }
