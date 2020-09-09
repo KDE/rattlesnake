@@ -51,6 +51,7 @@ Kirigami.Page {
             Button {
                 icon.name: "list-remove"
                 onClicked: Metronome.removeNote(repeater.count - 1)
+                enabled: Metronome.notes.length > 1
             }
             Kirigami.Card {
                 id: editor

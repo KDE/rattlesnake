@@ -15,6 +15,15 @@ Kirigami.ScrollablePage {
     Kirigami.CardsListView {
         model: Metronome.notes
         delegate: Kirigami.Card {
+            actions: [
+                Kirigami.Action {
+                    visible: index > 0
+                    text: "Delete"
+                    icon.name: "delete"
+                    onTriggered: Metronome.removeNote(index)
+                }
+            ]
+
             contentItem: Item {
                 implicitWidth: delegateLayout.implicitWidth
                 implicitHeight: delegateLayout.implicitHeight
