@@ -5,5 +5,5 @@
 ![imagec582843ad1d55415.png](https://www.imgload.org/images/imagec582843ad1d55415.png)
 
 ### Features:
-- Tap to the song you wan't to play and automaticly get the right RPM
+- Tap to the song you wan't to play and Rattlesnake automaticly figures out right RPM
 - Build your beat from multiple sounds and ajust The volume of individual beats
