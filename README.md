@@ -1,5 +1,5 @@
 # Rattlesnake
-## A metronome app for musicians on mobile and desktop devces
+## A metronome app for musicians on mobile and desktop devices
 
 ![image7d201f7f69949be3.png](https://www.imgload.org/images/image7d201f7f69949be3.png)
 ![imagec582843ad1d55415.png](https://www.imgload.org/images/imagec582843ad1d55415.png)
