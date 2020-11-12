@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Rattlesnake
+Comment=A metronome app for mobile and desktop
+Version=0.1
+Exec=rattlesnake
+Type=Application
+Terminal=false
+Categories=Qt;KDE;Utility;
