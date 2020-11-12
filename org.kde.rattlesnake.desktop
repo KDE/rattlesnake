@@ -6,3 +6,4 @@ Exec=rattlesnake
 Type=Application
 Terminal=false
 Categories=Qt;KDE;Utility;
+Icon=org.kde.rattlesnake
