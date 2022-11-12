@@ -13,7 +13,6 @@ Metronome::Metronome(QObject *parent)
     connect(&m_hitTimer, &QTimer::timeout, this, [=] {
         m_hitCount++;
     });
-
     addNote(Sounds::Click);
 }
 
@@ -42,8 +41,8 @@ void Metronome::playHitSound()
     m_mediaPlayer.setMedia(m_notes.at(i)->soundFile());
     m_mediaPlayer.setVolume(m_notes.at(i)->volume());
 
-    m_mediaPlayer.play();
     m_mediaPlayer.setPosition(0);
+    m_mediaPlayer.play();
 }
 
 int Metronome::currentIndex() const
