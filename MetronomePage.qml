@@ -27,7 +27,7 @@ Kirigami.Page {
 
     Connections {
         target: TapIn
-        onTapStopped: {
+        function onTapStopped() {
             Metronome.bpm = TapIn.bpm
             container.state = "resized"
             Metronome.start()
