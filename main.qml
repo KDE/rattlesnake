@@ -8,9 +8,7 @@ import org.kde.rattlesnake 1.0
 
 Kirigami.ApplicationWindow {
     visible: true
-    width: 700
     minimumWidth: 200
-    height: 480
     minimumHeight: 200
     title: qsTr("Rattlesnake")
     pageStack.initialPage: "qrc:/MetronomePage.qml"
