@@ -14,9 +14,5 @@ Kirigami.ApplicationWindow {
     minimumHeight: 200
     title: qsTr("Rattlesnake")
     pageStack.initialPage: "qrc:/MetronomePage.qml"
-    Component.onCompleted: {
-        if (!Kirigami.Settings.isMobile) {
-            pageStack.push("qrc:/EditPage.qml")
-        }
-    }
+
 }

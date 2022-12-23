@@ -42,6 +42,11 @@ Kirigami.Page {
             TapIn.tap()
         }
     }
+    leftAction: Kirigami.Action {
+        icon.name: "document-edit"
+        text: "Edit Beat"
+        onTriggered: pageStack.push("qrc:/EditPage.qml")
+    }
 
     ColumnLayout {
         anchors.fill: parent
