@@ -79,7 +79,12 @@ Kirigami.Page {
 
                                 Layout.alignment: Qt.AlignVCenter
                                 text: modelData.sound + 1
-                                onClicked: pageStack.push("qrc:/EditPage.qml")
+                                onClicked: {
+                                    let instrumentIndex = Metronome.notes[model.index].sound
+                                    let newIndex = ((instrumentIndex + 1) % 3)
+                                    console.log(newIndex)
+                                    Metronome.notes[model.index].sound = newIndex
+                                }
                             }
                         }
                         Item {
@@ -167,8 +172,10 @@ Kirigami.Page {
                     }
                 }
                 RoundButton {
+                    z: 1000
+                    height: width
+                    width: 50
                     id: playPauseButton
-                    flat: true
                     anchors.centerIn: parent
                     checkable: true
                     checked: Metronome.running
