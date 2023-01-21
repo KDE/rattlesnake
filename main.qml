@@ -8,6 +8,10 @@ import org.kde.rattlesnake 1.0
 
 Kirigami.ApplicationWindow {
     visible: true
+
+    width: 600
+    height: 400
+
     minimumWidth: 200
     minimumHeight: 200
     title: qsTr("Rattlesnake")

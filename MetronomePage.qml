@@ -52,6 +52,8 @@ Kirigami.Page {
         anchors.fill: parent
 
         RowLayout {
+            Layout.alignment: Qt.AlignCenter
+            Layout.maximumWidth: 500
             Layout.fillWidth: true
             Button {
                 icon.name: "list-remove"

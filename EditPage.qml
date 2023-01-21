@@ -7,11 +7,18 @@ import org.kde.kirigami 2.10 as Kirigami
 import org.kde.rattlesnake 1.0
 
 Kirigami.ScrollablePage {
+    id:root
     title: qsTr("Edit beat")
     mainAction: Kirigami.Action {
         icon.name: "list-add"
         onTriggered: Metronome.addNote(0)
     }
+    leftAction: Kirigami.Action {
+        icon.name: "edit-delete-remove"
+        onTriggered: pageStack.pop(1)
+
+    }
+
     Kirigami.CardsListView {
         model: Metronome.notes
         delegate: Kirigami.Card {
