@@ -69,17 +69,17 @@ Kirigami.ScrollablePage {
 
                                         InstrumentButton {
                                             belongsToIndex: index
-                                            instrument: Metronome.Click
+                                            instrument: Metronome.D
                                         }
 
                                         InstrumentButton {
                                             belongsToIndex: index
-                                            instrument: Metronome.HighHead
+                                            instrument: Metronome.E
                                         }
 
                                         InstrumentButton {
                                             belongsToIndex: index
-                                            instrument: Metronome.Snare
+                                            instrument: Metronome.F
                                         }
                                     }
                                     Item { Layout.fillWidth: true }
