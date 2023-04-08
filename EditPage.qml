@@ -21,6 +21,7 @@ Kirigami.ScrollablePage {
         y: applicationWindow().height - height - pageStack.globalToolBar.preferredHeight - margin
         singleAction:  Kirigami.Action {
             icon.name: "list-add"
+            text: qsTr("Add Beat")
             onTriggered: Metronome.addNote(0)
         }
 

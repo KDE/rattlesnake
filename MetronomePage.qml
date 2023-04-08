@@ -41,7 +41,7 @@ Kirigami.Page {
         y: root.height - height - pageStack.globalToolBar.preferredHeight - margin
         rightAction: Kirigami.Action {
             icon.name: "qrc:/tap-in.svg"
-            text: qsTr("Tap")
+            text: qsTr("Tap-In")
             onTriggered: {
                 Metronome.stop()
                 TapIn.tap()
@@ -49,7 +49,7 @@ Kirigami.Page {
         }
         leftAction: Kirigami.Action {
             icon.name: "document-edit"
-            text: "Edit Beat"
+            text: qsTr("Edit Beat")
             onTriggered: pageStack.push("qrc:/EditPage.qml")
         }
     }

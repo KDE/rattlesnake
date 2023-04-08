@@ -19,6 +19,9 @@ Controls.Button {
 
     height: 55
     width: 55
+    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+    Controls.ToolTip.visible: hovered
+    Controls.ToolTip.text: root.singleAction.text
     background: Kirigami.ShadowedRectangle{
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Window

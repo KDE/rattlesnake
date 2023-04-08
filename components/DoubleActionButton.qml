@@ -29,6 +29,9 @@ Kirigami.ShadowedRectangle{
     Controls.Button {
         id: rightButton
         property int margin: 10
+        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+        Controls.ToolTip.visible: hovered
+        Controls.ToolTip.text: root.rightAction.text
         background: Kirigami.ShadowedRectangle{
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -82,6 +85,9 @@ Kirigami.ShadowedRectangle{
     }
     Controls.Button {
         id: leftButton
+        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+        Controls.ToolTip.visible: hovered
+        Controls.ToolTip.text: root.leftAction.text
         background: Kirigami.ShadowedRectangle{
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
