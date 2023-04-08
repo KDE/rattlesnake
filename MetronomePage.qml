@@ -6,6 +6,8 @@ import org.kde.kirigami 2.10 as Kirigami
 
 import org.kde.rattlesnake 1.0
 
+import "components"
+
 Kirigami.Page {
     title: qsTr("Metronome")
     id: page
@@ -33,19 +35,23 @@ Kirigami.Page {
             Metronome.start()
         }
     }
-
-    mainAction: Kirigami.Action {
-        icon.name: "zoom-original"
-        text: qsTr("Tap")
-        onTriggered: {
-            Metronome.stop()
-            TapIn.tap()
+    DoubleActionButton {
+        parent: overlay
+        x: root.width - width - margin
+        y: root.height - height - pageStack.globalToolBar.preferredHeight - margin
+        rightAction: Kirigami.Action {
+            icon.name: "qrc:/tap-in.svg"
+            text: qsTr("Tap")
+            onTriggered: {
+                Metronome.stop()
+                TapIn.tap()
+            }
         }
-    }
-    leftAction: Kirigami.Action {
-        icon.name: "document-edit"
-        text: "Edit Beat"
-        onTriggered: pageStack.push("qrc:/EditPage.qml")
+        leftAction: Kirigami.Action {
+            icon.name: "document-edit"
+            text: "Edit Beat"
+            onTriggered: pageStack.push("qrc:/EditPage.qml")
+        }
     }
 
     ColumnLayout {

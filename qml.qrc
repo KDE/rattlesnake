@@ -4,5 +4,9 @@
         <file>MetronomePage.qml</file>
         <file>EditPage.qml</file>
         <file>InstrumentButton.qml</file>
+        <file>components/DoubleActionButton.qml</file>
+        <file>components/BottomDrawer.qml</file>
+        <file>components/ActionButton.qml</file>
+        <file>tap-in.svg</file>
     </qresource>
 </RCC>
