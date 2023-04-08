@@ -1,4 +1,6 @@
-# Rattlesnake
+# <img src="https://invent.kde.org/mbruchert/rattlesnake/-/raw/master/logo.png"  height="64" >  Rattlesnake
+
+
 ## A metronome app for musicians on mobile and desktop devices
 
 ![](https://i.imgur.com/5kfuFR8.png)
