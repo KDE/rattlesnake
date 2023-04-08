@@ -20,7 +20,7 @@ void Note::setSound(const int sound)
     m_sound = sound;
     Q_EMIT soundChanged();
 
-    setSoundFile(QUrl(QStringLiteral("qrc:/media/sounds/click%1.wav").arg(sound + 1)));
+    setSoundFile(QUrl(QStringLiteral("qrc:/media/sounds/clicker%1.ogg").arg(sound + 1)));
     qDebug() << soundFile();
 }
 

@@ -17,9 +17,9 @@ class Metronome : public QObject
 
 public:
     enum Sounds {
-        Click,
-        HighHead,
-        Snare
+        D,
+        E,
+        F
     };
 
     Q_ENUM(Sounds)

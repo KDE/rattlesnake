@@ -7,14 +7,14 @@ Button {
     property int instrument
     checkable: true
     checked: Metronome.notes[belongsToIndex].sound === instrument
-    text: {
+    icon.name: {
         switch (instrument) {
-        case Metronome.Click:
-            return "Click"
-        case Metronome.HighHead:
-            return "Hi-Hat"
-        case Metronome.Snare:
-            return "Snare"
+        case Metronome.D:
+            return "go-down"
+        case Metronome.E:
+            return "gnumeric-object-line"
+        case Metronome.F:
+            return "go-up"
         }
     }
 

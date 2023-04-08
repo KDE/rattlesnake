@@ -91,7 +91,14 @@ Kirigami.Page {
                                 flat: index !== Metronome.currentIndex
 
                                 Layout.alignment: Qt.AlignVCenter
-                                text: modelData.sound + 1
+                                icon.name: if (modelData.sound === 0) {
+                                               "go-down"
+                                           } else if (modelData.sound === 1) {
+                                               "gnumeric-object-line"
+                                           } else if (modelData.sound === 2) {
+                                               "go-up"
+                                           }
+
                                 onClicked: {
                                     let instrumentIndex = Metronome.notes[model.index].sound
                                     let newIndex = ((instrumentIndex + 1) % 3)

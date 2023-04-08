@@ -13,7 +13,7 @@ Metronome::Metronome(QObject *parent)
     connect(&m_hitTimer, &QTimer::timeout, this, [=] {
         m_hitCount++;
     });
-    addNote(Sounds::Click);
+    addNote(Sounds::F);
 }
 
 int Metronome::bpm() const
