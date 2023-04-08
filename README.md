@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 ## A metronome app for musicians on mobile and desktop devices
 
-![](https://i.imgur.com/5kfuFR8.png)
+![](https://i.imgur.com/D5iXnsz.png)
 
 ### Feature
 - Tap to the song you wan't to play and Rattlesnake automaticly figures out the right BPM
