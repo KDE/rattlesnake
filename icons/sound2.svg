@@ -23,7 +23,7 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="true"
      inkscape:zoom="24.865149"
-     inkscape:cx="5.1477672"
+     inkscape:cx="-1.3271587"
      inkscape:cy="12.608008"
      inkscape:window-width="1707"
      inkscape:window-height="980"
@@ -44,7 +44,7 @@
         }
     </style>
   <rect
-     style="opacity:1;fill:#000000"
+     style="opacity:1;fill:#232629;fill-opacity:1"
      id="rect5016"
      width="16"
      height="4"
@@ -53,7 +53,7 @@
      rx="1"
      ry="1" />
   <rect
-     style="fill:#000000;opacity:1"
+     style="fill:#232629;opacity:1;fill-opacity:1"
      id="rect5016-3"
      width="16"
      height="4"
@@ -62,7 +62,7 @@
      rx="1"
      ry="1" />
   <rect
-     style="fill:#000000;opacity:0.2"
+     style="fill:#232629;opacity:0.2;fill-opacity:1"
      id="rect5016-3-5"
      width="16"
      height="4"
