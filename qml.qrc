@@ -13,6 +13,5 @@ SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
         <file>components/DoubleActionButton.qml</file>
         <file>components/BottomDrawer.qml</file>
         <file>components/ActionButton.qml</file>
-        <file>tap-in.svg</file>
     </qresource>
 </RCC>

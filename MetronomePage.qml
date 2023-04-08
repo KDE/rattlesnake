@@ -44,7 +44,7 @@ Kirigami.Page {
         x: root.width - width - margin
         y: root.height - height - pageStack.globalToolBar.preferredHeight - margin
         rightAction: Kirigami.Action {
-            icon.name: "qrc:/tap-in.svg"
+            icon.name: "qrc:/media/icons/tap-in.svg"
             text: qsTr("Tap-In")
             onTriggered: {
                 Metronome.stop()
@@ -73,7 +73,7 @@ Kirigami.Page {
             Kirigami.Card {
                 id: editor
                 Layout.fillWidth: true
-                implicitHeight: 50
+                implicitHeight: 45
                 ScrollView {
                     anchors.fill: parent
                     ScrollBar.vertical.policy: ScrollBar.AlwaysOff
@@ -81,7 +81,7 @@ Kirigami.Page {
                     RowLayout {
                         height: editor.height
                         Item {
-                            implicitWidth: 4
+                            implicitHeight: 4
                             //spacer
                         }
                         Repeater {
@@ -95,13 +95,23 @@ Kirigami.Page {
                                 flat: index !== Metronome.currentIndex
 
                                 Layout.alignment: Qt.AlignVCenter
-                                icon.name: if (modelData.sound === 0) {
-                                               "go-down"
-                                           } else if (modelData.sound === 1) {
-                                               "gnumeric-object-line"
-                                           } else if (modelData.sound === 2) {
-                                               "go-up"
-                                           }
+                                contentItem: Item{
+                                    Kirigami.Icon{
+                                        id: buttonIcon
+                                        isMask:true
+                                        source: if (modelData.sound === 0) {
+                                                "qrc:/media/icons/sound1.svg"
+                                            } else if (modelData.sound === 1) {
+                                                "qrc:/media/icons/sound2.svg"
+                                            } else if (modelData.sound === 2) {
+                                                "qrc:/media/icons/sound3.svg"
+                                            }
+                                        anchors.centerIn: parent
+                                        height: Kirigami.Units.gridUnit*1.2
+                                        width:height
+                                    }
+                                }
+
 
                                 onClicked: {
                                     let instrumentIndex = Metronome.notes[model.index].sound
