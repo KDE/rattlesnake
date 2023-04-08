@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+//
+// SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import org.kde.rattlesnake 1.0

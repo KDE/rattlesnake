@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+//
+// SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.14

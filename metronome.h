@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+//
+// SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
 #ifndef METRONOME_H
 #define METRONOME_H
 
