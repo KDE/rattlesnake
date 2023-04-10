@@ -167,9 +167,10 @@ Kirigami.Page {
                             Layout.alignment: Qt.AlignHCenter
                             text: "BPM:"
                         }
-                        Kirigami.Heading {
+                        Label {
                             Layout.alignment: Qt.AlignHCenter
                             text: Metronome.bpm
+                            font.pixelSize: 30
                         }
                         RowLayout {
                             Layout.alignment: Qt.AlignHCenter
@@ -183,7 +184,8 @@ Kirigami.Page {
                                 id: dial
                                 value: Metronome.bpm
                                 from: 20
-                                to: 400
+                                to: 260
+                                inputMode: Kirigami.Settings.hasTransientTouchInput? Dial.Vertical : Dial.Circular
 
                                 Behavior on value {
                                     NumberAnimation {}
