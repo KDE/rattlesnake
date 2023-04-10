@@ -70,12 +70,11 @@ Kirigami.Page {
 
     ColumnLayout {
         anchors.fill: parent
+        Item { Layout.fillHeight: true }
 
         RowLayout {
             Layout.alignment: Qt.AlignCenter
-//            Layout.maximumWidth: 5
             Layout.preferredWidth: 10
-//            Layout.fillWidth: true
             Item { Layout.fillWidth: true }
             Button {
                 icon.name: "list-remove"
@@ -101,7 +100,7 @@ Kirigami.Page {
                         model: Metronome.notes
                         delegate: Button {
                             implicitWidth: height
-                            flat:/* index !== Metronome.currentIndex*/ true
+                            flat:true
                             implicitHeight: Kirigami.Units.gridUnit*3
 
                             Layout.alignment: Qt.AlignVCenter
@@ -109,7 +108,7 @@ Kirigami.Page {
                                 Kirigami.Icon{
                                     id: buttonIcon
                                     isMask:true
-                                    opacity: 0.7
+                                    opacity: 0.6
                                     color: index !== Metronome.currentIndex ? Kirigami.Theme.textColor:Kirigami.Theme.hoverColor
                                     source: if (modelData.sound === 0) {
                                             "qrc:/media/icons/sound1.svg"
@@ -148,9 +147,7 @@ Kirigami.Page {
 
         }
 
-        Item {
-            Layout.fillHeight: true
-        }
+        Item { Layout.fillHeight: true }
 
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
