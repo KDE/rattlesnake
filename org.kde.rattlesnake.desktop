@@ -4,7 +4,20 @@
 
 [Desktop Entry]
 Name=Rattlesnake
+Name[ca]=Rattlesnake
+Name[de]=Rattlesnake
+Name[es]=Rattlesnake
+Name[nl]=Rattlesnake
+Name[tr]=Çıngıraklı Yılan
+Name[uk]=Rattlesnake
+Name[x-test]=xxRattlesnakexx
 Comment=A metronome app for mobile and desktop
+Comment[ca]=Una aplicació de metrònom per al mòbil i l'escriptori
+Comment[es]=Aplicación de metrónomo para el móvil y el escritorio
+Comment[nl]=Een toepassing voor mobiel en bureaublad van een metronoom
+Comment[tr]=Taşınabilir ortamlar ve masaüstü için bir metronom uygulaması
+Comment[uk]=Програма-метроном для мобільних пристроїв та робочих станцій
+Comment[x-test]=xxA metronome app for mobile and desktopxx
 Version=0.1
 Exec=rattlesnake
 Type=Application
