@@ -6,6 +6,7 @@
 Name=Rattlesnake
 Name[ca]=Rattlesnake
 Name[ca@valencia]=Rattlesnake
+Name[cs]=Rattlesnake
 Name[de]=Rattlesnake
 Name[en_GB]=Rattlesnake
 Name[es]=Rattlesnake
@@ -25,6 +26,7 @@ Name[x-test]=xxRattlesnakexx
 Comment=A metronome app for mobile and desktop
 Comment[ca]=Una aplicació de metrònom per al mòbil i l'escriptori
 Comment[ca@valencia]=Una aplicació de metrònom per al mòbil i l'escriptori
+Comment[cs]=Aplikace metronom pro mobilní zařízení či počítače
 Comment[en_GB]=A metronome app for mobile and desktop
 Comment[es]=Aplicación de metrónomo para el móvil y el escritorio
 Comment[fi]=Metronomisovellus mobiiliin ja työpöydälle
