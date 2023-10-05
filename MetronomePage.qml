@@ -70,7 +70,6 @@ Kirigami.Page {
 
     ColumnLayout {
         anchors.fill: parent
-        Item { Layout.fillHeight: true }
 
         RowLayout {
             Layout.alignment: Qt.AlignCenter
@@ -146,7 +145,6 @@ Kirigami.Page {
             Item { Layout.fillWidth: true }
 
         }
-
         Item { Layout.fillHeight: true }
 
         MobileForm.FormCard {
