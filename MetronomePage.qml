@@ -6,7 +6,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.12
-import org.kde.kirigami 2.10 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import org.kde.rattlesnake 1.0
@@ -155,11 +155,7 @@ Kirigami.Page {
             contentItem: ColumnLayout {
                 spacing:0
                 MobileForm.AbstractFormDelegate {
-                    background: Rectangle {
-                        color: index === Metronome.currentIndex ?Kirigami.Theme.highlightColor:"transparent"
-                        opacity: 0.2
-
-                    }
+                    background: Item {}
                     contentItem: ColumnLayout {
 
                         Label {
