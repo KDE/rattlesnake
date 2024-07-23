@@ -1,7 +1,7 @@
  {
     "id": "org.kde.rattlesnake",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-22.08",
+    "runtime-version": "6.7",
     "sdk": "org.kde.Sdk",
     "command": "rattlesnake",
     "tags": ["nightly"],
@@ -15,18 +15,6 @@
     "separate-locales": false,
     "modules": [
         {
-            "name": "rattlesnake",
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "dir",
-                    "path": ".",
-                    "skip": [".git"]
-                }
-            ]
-        },
-        {
             "name": "kirigami-addons",
             "config-opts": [
                 "-DBUILD_TESTING=OFF",
@@ -36,14 +24,26 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-0.7.0.tar.xz",
-                    "sha256": "0132a58b150229544a61e17e792c48cfc6daa03a8be9c7acd873a6c30d283df7",
+                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.3.0.tar.xz",
+                    "sha256": "f5e44d7a7d7dfd866c529bb004f7204013609a16c9757091fcdb2c6c5be00ff3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 242933,
                         "stable-only": true,
                         "url-template": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-$version.tar.xz"
                     }
+                }
+            ]
+        },
+        {
+            "name": "rattlesnake",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": ".",
+                    "skip": [".git"]
                 }
             ]
         }
