@@ -1,17 +1,8 @@
-<!--
-SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
-
-SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
--->
-
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MetronomePage.qml</file>
         <file>EditPage.qml</file>
         <file>InstrumentButton.qml</file>
-        <file>components/DoubleActionButton.qml</file>
-        <file>components/BottomDrawer.qml</file>
-        <file>components/ActionButton.qml</file>
     </qresource>
 </RCC>

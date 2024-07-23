@@ -12,8 +12,6 @@ import org.kde.kirigamiaddons.components as Components
 
 import org.kde.rattlesnake 1.0
 
-import "components"
-
 Kirigami.Page {
     leftPadding: 0
     rightPadding: 0
