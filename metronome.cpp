@@ -9,6 +9,7 @@
 Metronome::Metronome(QObject *parent)
     : QObject(parent)
 {
+    m_mediaPlayer.setAudioOutput(&m_audioOutput);
     m_hitTimer.setSingleShot(false);
     setBpm(120);
 
@@ -42,8 +43,8 @@ void Metronome::playHitSound()
     setCurrentIndex(i);
 
     qDebug() << "Sound index" << i << m_notes.at(i)->soundFile();
-    m_mediaPlayer.setMedia(m_notes.at(i)->soundFile());
-    m_mediaPlayer.setVolume(m_notes.at(i)->volume());
+    m_mediaPlayer.setSource(m_notes.at(i)->soundFile());
+    m_audioOutput.setVolume(m_notes.at(i)->volume());
 
     m_mediaPlayer.setPosition(0);
     m_mediaPlayer.play();

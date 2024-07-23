@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QMediaPlayer>
+#include <QAudioOutput>
 
 #include "note.h"
 
@@ -57,6 +58,7 @@ private:
     int m_bpm;
     QTimer m_hitTimer;
     QMediaPlayer m_mediaPlayer;
+    QAudioOutput m_audioOutput;
     QVector<Note*> m_notes;
     int m_hitCount = 0;
     int m_currentIndex = 0;

@@ -7,7 +7,8 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.20 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.kirigamiaddons.components as Components
 
 import org.kde.rattlesnake 1.0
 
@@ -49,11 +50,15 @@ Kirigami.Page {
             Metronome.start()
         }
     }
-    DoubleActionButton {
+    Components.DoubleFloatingButton {
         parent: overlay
-        x: root.width - width - margin
-        y: root.height - height - pageStack.globalToolBar.preferredHeight - margin
-        rightAction: Kirigami.Action {
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            margins: Kirigami.Units.largeSpacing
+        }
+
+        leadingAction: Kirigami.Action {
             icon.name: "qrc:/media/icons/tap-in.svg"
             text: qsTr("Tap-In")
             onTriggered: {
@@ -61,7 +66,7 @@ Kirigami.Page {
                 TapIn.tap()
             }
         }
-        leftAction: Kirigami.Action {
+        trailingAction: Kirigami.Action {
             icon.name: "document-edit"
             text: qsTr("Edit Beat")
             onTriggered: pageStack.push("qrc:/EditPage.qml")
@@ -81,7 +86,7 @@ Kirigami.Page {
                 enabled: Metronome.notes.length > 1
             }
             ScrollView {
-                Layout.maximumWidth: 300
+//                Layout.maximumWidth: 300
                 ScrollBar.vertical.policy: ScrollBar.AlwaysOff
                 ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
@@ -147,12 +152,9 @@ Kirigami.Page {
         }
         Item { Layout.fillHeight: true }
 
-        MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
-            Layout.fillWidth: true
-            contentItem: ColumnLayout {
-                spacing:0
-                MobileForm.AbstractFormDelegate {
+        FormCard.FormCard {
+
+                FormCard.AbstractFormDelegate {
                     background: Item {}
                     contentItem: ColumnLayout {
 
@@ -251,7 +253,7 @@ Kirigami.Page {
                         }
                     }
                 }
-            }
+
         }
 
         Item {
