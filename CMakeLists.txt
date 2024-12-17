@@ -24,12 +24,10 @@ include(ECMConfiguredInstall)
 find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Core Quick Multimedia Widgets REQUIRED)
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-	Kirigami2
+    Kirigami2
 )
 
-add_executable(${PROJECT_NAME} "main.cpp" "metronome.cpp" "note.cpp" "tapin.cpp" "qml.qrc" "media.qrc")
-target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Quick Qt6::Multimedia Qt6::Widgets)
+add_subdirectory(src)
 
 install(TARGETS ${PROJECT_NAME} ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.rattlesnake.desktop DESTINATION ${KDE_INSTALL_APPDIR})
