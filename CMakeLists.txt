@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 project(rattlesnake LANGUAGES CXX)
 
@@ -19,16 +19,15 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
-include(ECMConfiguredInstall)
 
 find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Core Quick Multimedia Widgets REQUIRED)
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-    Kirigami2
+    Kirigami
 )
 
 add_subdirectory(src)
 
-install(TARGETS ${PROJECT_NAME} ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS rattlesnake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.rattlesnake.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.rattlesnake.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
