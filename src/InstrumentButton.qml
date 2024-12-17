@@ -12,21 +12,21 @@ Button {
     property int instrument
     checkable: true
     checked: Metronome.notes[belongsToIndex].sound === instrument
-    contentItem: Item{
-        Kirigami.Icon{
+    contentItem: Item {
+        Kirigami.Icon {
             id: buttonIcon
-            isMask:true
+            isMask: true
             source: switch (instrument) {
-                    case Metronome.D:
-                        return "qrc:/media/icons/sound1.svg"
-                    case Metronome.E:
-                        return "qrc:/media/icons/sound2.svg"
-                    case Metronome.F:
-                        return "qrc:/media/icons/sound3.svg"
+            case Metronome.D:
+                return "qrc:/media/icons/sound1.svg";
+            case Metronome.E:
+                return "qrc:/media/icons/sound2.svg";
+            case Metronome.F:
+                return "qrc:/media/icons/sound3.svg";
             }
             anchors.centerIn: parent
-            height: Kirigami.Units.gridUnit*1.2
-            width:height
+            height: Kirigami.Units.gridUnit * 1.2
+            width: height
         }
     }
 

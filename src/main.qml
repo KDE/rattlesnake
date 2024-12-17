@@ -16,12 +16,11 @@ Kirigami.ApplicationWindow {
     width: 600
     height: 400
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
-    pageStack.popHiddenPages:true
+    pageStack.popHiddenPages: true
     pageStack.columnView.columnResizeMode: Kirigami.ColumnView.SingleColumn
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.Title
     minimumWidth: 200
     minimumHeight: 200
     title: qsTr("Rattlesnake")
     pageStack.initialPage: "qrc:/MetronomePage.qml"
-
 }

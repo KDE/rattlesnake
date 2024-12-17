@@ -13,17 +13,16 @@ import org.kde.kirigamiaddons.components as Components
 import org.kde.rattlesnake 1.0
 
 Kirigami.Page {
+    id: page
     leftPadding: 0
     rightPadding: 0
     Component.onCompleted: {
-        Metronome.addNote(0)
-        Metronome.addNote(0)
-        Metronome.addNote(0)
+        Metronome.addNote(0);
+        Metronome.addNote(0);
+        Metronome.addNote(0);
     }
 
-
     title: qsTr("Metronome")
-    id: page
     footer: ProgressBar {
         height: TapIn.tapCounter === 0 ? 0 : 15
         Behavior on height {
@@ -39,13 +38,12 @@ Kirigami.Page {
         }
     }
 
-
     Connections {
         target: TapIn
         function onTapStopped() {
-            Metronome.bpm = TapIn.bpm
-            container.state = "resized"
-            Metronome.start()
+            Metronome.bpm = TapIn.bpm;
+            container.state = "resized";
+            Metronome.start();
         }
     }
     Components.DoubleFloatingButton {
@@ -60,8 +58,8 @@ Kirigami.Page {
             icon.name: "qrc:/media/icons/tap-in.svg"
             text: qsTr("Tap-In")
             onTriggered: {
-                Metronome.stop()
-                TapIn.tap()
+                Metronome.stop();
+                TapIn.tap();
             }
         }
         trailingAction: Kirigami.Action {
@@ -77,14 +75,16 @@ Kirigami.Page {
         RowLayout {
             Layout.alignment: Qt.AlignCenter
             Layout.preferredWidth: 10
-            Item { Layout.fillWidth: true }
+            Item {
+                Layout.fillWidth: true
+            }
             Button {
                 icon.name: "list-remove"
                 onClicked: Metronome.removeNote(repeater.count - 1)
                 enabled: Metronome.notes.length > 1
             }
             ScrollView {
-//                Layout.maximumWidth: 300
+                // Layout.maximumWidth: 300
                 ScrollBar.vertical.policy: ScrollBar.AlwaysOff
                 ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
@@ -102,35 +102,34 @@ Kirigami.Page {
                         model: Metronome.notes
                         delegate: Button {
                             implicitWidth: height
-                            flat:true
-                            implicitHeight: Kirigami.Units.gridUnit*3
+                            flat: true
+                            implicitHeight: Kirigami.Units.gridUnit * 3
 
                             Layout.alignment: Qt.AlignVCenter
-                            contentItem: Item{
-                                Kirigami.Icon{
+                            contentItem: Item {
+                                Kirigami.Icon {
                                     id: buttonIcon
-                                    isMask:true
+                                    isMask: true
                                     opacity: 0.6
-                                    color: index !== Metronome.currentIndex ? Kirigami.Theme.textColor:Kirigami.Theme.hoverColor
+                                    color: index !== Metronome.currentIndex ? Kirigami.Theme.textColor : Kirigami.Theme.hoverColor
                                     source: if (modelData.sound === 0) {
-                                            "qrc:/media/icons/sound1.svg"
-                                        } else if (modelData.sound === 1) {
-                                            "qrc:/media/icons/sound2.svg"
-                                        } else if (modelData.sound === 2) {
-                                            "qrc:/media/icons/sound3.svg"
-                                        }
+                                        "qrc:/media/icons/sound1.svg";
+                                    } else if (modelData.sound === 1) {
+                                        "qrc:/media/icons/sound2.svg";
+                                    } else if (modelData.sound === 2) {
+                                        "qrc:/media/icons/sound3.svg";
+                                    }
                                     anchors.centerIn: parent
-                                    height: Kirigami.Units.gridUnit*3
-                                    width:height
+                                    height: Kirigami.Units.gridUnit * 3
+                                    width: height
                                 }
                             }
 
-
                             onClicked: {
-                                let instrumentIndex = Metronome.notes[model.index].sound
-                                let newIndex = ((instrumentIndex + 1) % 3)
-                                console.log(newIndex)
-                                Metronome.notes[model.index].sound = newIndex
+                                let instrumentIndex = Metronome.notes[model.index].sound;
+                                let newIndex = ((instrumentIndex + 1) % 3);
+                                console.log(newIndex);
+                                Metronome.notes[model.index].sound = newIndex;
                             }
                         }
                     }
@@ -145,113 +144,113 @@ Kirigami.Page {
                 icon.name: "list-add"
                 onClicked: Metronome.addNote(0)
             }
-            Item { Layout.fillWidth: true }
-
+            Item {
+                Layout.fillWidth: true
+            }
         }
-        Item { Layout.fillHeight: true }
+        Item {
+            Layout.fillHeight: true
+        }
 
         FormCard.FormCard {
 
-                FormCard.AbstractFormDelegate {
-                    background: Item {}
-                    contentItem: ColumnLayout {
+            FormCard.AbstractFormDelegate {
+                background: Item {}
+                contentItem: ColumnLayout {
 
-                        Label {
-                            color: Kirigami.Theme.disabledTextColor
-                            Layout.alignment: Qt.AlignHCenter
-                            text: "BPM:"
+                    Label {
+                        color: Kirigami.Theme.disabledTextColor
+                        Layout.alignment: Qt.AlignHCenter
+                        text: "BPM:"
+                    }
+                    Label {
+                        Layout.alignment: Qt.AlignHCenter
+                        text: Metronome.bpm
+                        font.pixelSize: 30
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+
+                        ToolButton {
+                            icon.name: "go-previous"
+                            onClicked: Metronome.bpm = Metronome.bpm - 1
                         }
-                        Label {
-                            Layout.alignment: Qt.AlignHCenter
-                            text: Metronome.bpm
-                            font.pixelSize: 30
-                        }
-                        RowLayout {
-                            Layout.alignment: Qt.AlignHCenter
+                        Dial {
+                            id: dial
+                            value: Metronome.bpm
+                            from: 20
+                            to: 260
+                            inputMode: Kirigami.Settings.hasTransientTouchInput ? Dial.Vertical : Dial.Circular
 
-                            ToolButton {
-                                icon.name: "go-previous"
-                                onClicked: Metronome.bpm = Metronome.bpm -1
-
+                            Behavior on value {
+                                NumberAnimation {}
                             }
-                            Dial {
-                                id: dial
-                                value: Metronome.bpm
-                                from: 20
-                                to: 260
-                                inputMode: Kirigami.Settings.hasTransientTouchInput? Dial.Vertical : Dial.Circular
 
-                                Behavior on value {
-                                    NumberAnimation {}
+                            onMoved: {
+                                Metronome.bpm = value;
+                            }
+                            contentItem: Item {
+                                id: container
+                                anchors.fill: dial
+                                Rectangle {
+                                    id: animation
+                                    anchors.centerIn: parent
+                                    width: height
+                                    height: playPauseButton.height * 0.75
+                                    radius: height * 0.5
+                                    color: Kirigami.Theme.hoverColor
                                 }
-
-                                onMoved: {
-                                    Metronome.bpm = value
-                                }
-                                contentItem: Item {
-                                    id: container
-                                    anchors.fill: dial
-                                    Rectangle {
-                                        id: animation
-                                        anchors.centerIn: parent
-                                        width: height
-                                        height: playPauseButton.height * 0.75
-                                        radius: height * 0.5
-                                        color: Kirigami.Theme.hoverColor
-                                    }
-                                    states: [
-                                        State {
-                                            name: "resized"
-                                            PropertyChanges {
-                                                target: animation
-                                                height: 600
-                                                opacity: 0
-                                            }
-                                        },
-                                        State {
-                                            name: "normal"
-                                            PropertyChanges {
-                                                target: animation
-                                                height: playPauseButton.height * 0.75
-                                                opacity: 0.5
-                                            }
+                                states: [
+                                    State {
+                                        name: "resized"
+                                        PropertyChanges {
+                                            target: animation
+                                            height: 600
+                                            opacity: 0
                                         }
-                                    ]
-                                    state: "normal"
-                                    transitions: Transition {
-                                        enabled: container.state == "normal"
-
-                                        onRunningChanged: if (!running) {
-                                                              container.state = "normal"
-                                                          }
-                                        PropertyAnimation {
-
-                                            properties: "height, opacity"
-                                            easing.type: Easing.InOutQuad
+                                    },
+                                    State {
+                                        name: "normal"
+                                        PropertyChanges {
+                                            target: animation
+                                            height: playPauseButton.height * 0.75
+                                            opacity: 0.5
                                         }
                                     }
-                                    RoundButton {
-                                        z: 1000
-                                        height: width
-                                        width: 50
-                                        id: playPauseButton
-                                        anchors.centerIn: parent
-                                        checkable: true
-                                        checked: Metronome.running
-                                        icon.name: checked ? "media-playback-pause" : "media-playback-start"
-                                        onClicked: checked ? Metronome.start() : Metronome.stop()
+                                ]
+                                state: "normal"
+                                transitions: Transition {
+                                    enabled: container.state == "normal"
+
+                                    onRunningChanged: if (!running) {
+                                        container.state = "normal";
+                                    }
+                                    PropertyAnimation {
+
+                                        properties: "height, opacity"
+                                        easing.type: Easing.InOutQuad
                                     }
                                 }
+                                RoundButton {
+                                    id: playPauseButton
+                                    z: 1000
+                                    height: width
+                                    width: 50
+                                    anchors.centerIn: parent
+                                    checkable: true
+                                    checked: Metronome.running
+                                    icon.name: checked ? "media-playback-pause" : "media-playback-start"
+                                    onClicked: checked ? Metronome.start() : Metronome.stop()
+                                }
                             }
-                            ToolButton {
-                                icon.name: "go-next"
-                                onClicked: Metronome.bpm = Metronome.bpm + 1
-
-                            }
+                        }
+                        ToolButton {
+                            icon.name: "go-next"
+                            onClicked: Metronome.bpm = Metronome.bpm + 1
                         }
                     }
                 }
-
+            }
         }
 
         Item {

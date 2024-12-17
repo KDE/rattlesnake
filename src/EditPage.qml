@@ -13,24 +13,23 @@ import org.kde.kirigamiaddons.components as Components
 import org.kde.rattlesnake 1.0
 
 Kirigami.ScrollablePage {
-    id:root
+    id: root
     title: qsTr("Edit beat")
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     padding: 0
 
-    Components.FloatingButton{
+    Components.FloatingButton {
         parent: overlay
         anchors {
             right: parent.right
             bottom: parent.bottom
             margins: Kirigami.Units.largeSpacing
         }
-        action:  Kirigami.Action {
+        action: Kirigami.Action {
             icon.name: "list-add"
             text: qsTr("Add Beat")
             onTriggered: Metronome.addNote(0)
         }
-
     }
     ColumnLayout {
         FormCard.FormCard {
@@ -40,13 +39,12 @@ Kirigami.ScrollablePage {
                 model: Metronome.notes
                 delegate: ColumnLayout {
                     required property int index
-                    spacing:0
+                    spacing: 0
                     Layout.margins: 0
                     FormCard.AbstractFormDelegate {
                         background: Rectangle {
-                            color: index === Metronome.currentIndex ?Kirigami.Theme.highlightColor:"transparent"
+                            color: index === Metronome.currentIndex ? Kirigami.Theme.highlightColor : "transparent"
                             opacity: 0.2
-
                         }
                         contentItem: ColumnLayout {
                             id: delegateLayout
@@ -61,12 +59,14 @@ Kirigami.ScrollablePage {
                                     visible: index > 0
                                 }
 
-                                Item { Layout.fillWidth: true }
+                                Item {
+                                    Layout.fillWidth: true
+                                }
                                 RowLayout {
+                                    id: column
                                     Layout.alignment: Qt.AlignHCenter
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    id: column
 
                                     InstrumentButton {
                                         belongsToIndex: index
@@ -83,7 +83,9 @@ Kirigami.ScrollablePage {
                                         instrument: Metronome.F
                                     }
                                 }
-                                Item { Layout.fillWidth: true }
+                                Item {
+                                    Layout.fillWidth: true
+                                }
 
                                 ToolButton {
                                     id: deleteButton
@@ -101,10 +103,9 @@ Kirigami.ScrollablePage {
                                     checkable: true
                                     checked: Metronome.notes[index].volume === 0
                                     onClicked: Metronome.notes[index].volume = 0
-
                                 }
                                 Slider {
-                                    id:slider
+                                    id: slider
                                     Layout.alignment: Qt.AlignHCenter
                                     from: 0
                                     to: 100
@@ -117,7 +118,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                     FormCard.FormDelegateSeparator {
-                        visible: index != repeater.count -1
+                        visible: index != repeater.count - 1
                     }
                 }
             }
