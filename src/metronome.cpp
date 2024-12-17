@@ -62,7 +62,7 @@ void Metronome::setCurrentIndex(int curentIndex)
     Q_EMIT currentIndexChanged();
 }
 
-QVector<Note*> Metronome::notes() const
+QVector<Note *> Metronome::notes() const
 {
     return m_notes;
 }
@@ -96,6 +96,7 @@ void Metronome::stop()
     Q_EMIT runningChanged();
 }
 
-bool Metronome::running() const {
+bool Metronome::running() const
+{
     return m_hitTimer.isActive();
 }

@@ -19,6 +19,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
+include(KDEGitCommitHooks)
 
 find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Core Quick Multimedia Widgets REQUIRED)
 
@@ -31,3 +32,8 @@ add_subdirectory(src)
 install(TARGETS rattlesnake ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.rattlesnake.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.rattlesnake.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
+
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)

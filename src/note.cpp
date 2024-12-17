@@ -11,7 +11,6 @@ Note::Note(QObject *parent)
     , m_sound(0)
     , m_volume(50)
 {
-
 }
 
 int Note::sound() const

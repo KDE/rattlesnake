@@ -5,9 +5,8 @@
 #ifndef TAPIN_H
 #define TAPIN_H
 
-#include <QObject>
 #include <QElapsedTimer>
-
+#include <QObject>
 
 class TapIn : public QObject
 {
@@ -35,6 +34,5 @@ private:
     int m_tapCounter = 0;
     int m_bpm = 0;
 };
-
 
 #endif // TAPIN_H

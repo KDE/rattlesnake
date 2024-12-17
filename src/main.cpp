@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-#include <QApplication>
-#include <QQmlApplicationEngine>
 #include "metronome.h"
 #include "tapin.h"
+#include <QApplication>
+#include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[])
 {

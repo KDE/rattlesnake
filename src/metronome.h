@@ -5,10 +5,10 @@
 #ifndef METRONOME_H
 #define METRONOME_H
 
+#include <QAudioOutput>
+#include <QMediaPlayer>
 #include <QObject>
 #include <QTimer>
-#include <QMediaPlayer>
-#include <QAudioOutput>
 
 #include "note.h"
 
@@ -16,7 +16,7 @@ class Metronome : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int bpm READ bpm WRITE setBpm NOTIFY bpmChanged)
-    Q_PROPERTY(QVector<Note*> notes READ notes NOTIFY notesChanged)
+    Q_PROPERTY(QVector<Note *> notes READ notes NOTIFY notesChanged)
     Q_PROPERTY(int currentIndex READ currentIndex NOTIFY currentIndexChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
 
@@ -59,7 +59,7 @@ private:
     QTimer m_hitTimer;
     QMediaPlayer m_mediaPlayer;
     QAudioOutput m_audioOutput;
-    QVector<Note*> m_notes;
+    QVector<Note *> m_notes;
     int m_hitCount = 0;
     int m_currentIndex = 0;
 };

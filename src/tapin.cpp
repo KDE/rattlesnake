@@ -8,7 +8,8 @@
 
 #include <algorithm>
 
-TapIn::TapIn(QObject *parent) : QObject(parent)
+TapIn::TapIn(QObject *parent)
+    : QObject(parent)
 {
 }
 
