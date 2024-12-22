@@ -4,6 +4,7 @@
 
 [Desktop Entry]
 Name=Rattlesnake
+Name[ar]=أفعى مجلجلة
 Name[ca]=Rattlesnake
 Name[ca@valencia]=Rattlesnake
 Name[cs]=Rattlesnake
@@ -34,6 +35,7 @@ Name[uk]=Rattlesnake
 Name[x-test]=xxRattlesnakexx
 Name[zh_TW]=Rattlesnake
 Comment=A metronome app for mobile and desktop
+Comment[ar]=تطبيق المسرع للأجهزة المحمولة وسطح المكتب
 Comment[ca]=Una aplicació de metrònom per al mòbil i l'escriptori
 Comment[ca@valencia]=Una aplicació de metrònom per al mòbil i l'escriptori
 Comment[cs]=Aplikace metronom pro mobilní zařízení či počítače
