@@ -1,10 +1,12 @@
- {
+{
     "id": "org.kde.rattlesnake",
     "runtime": "org.kde.Platform",
     "runtime-version": "6.10",
     "sdk": "org.kde.Sdk",
     "command": "rattlesnake",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
         "--socket=pulseaudio",
@@ -24,8 +26,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.3.0.tar.xz",
-                    "sha256": "f5e44d7a7d7dfd866c529bb004f7204013609a16c9757091fcdb2c6c5be00ff3",
+                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.10.0.tar.xz",
+                    "sha256": "c98f92bf7c452e12f6dc403404215413db3959fe904ad830ead0db6bb09b3d11",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 242933,
@@ -43,10 +45,11 @@
                 {
                     "type": "dir",
                     "path": ".",
-                    "skip": [".git"]
+                    "skip": [
+                        ".git"
+                    ]
                 }
             ]
         }
     ]
 }
-
